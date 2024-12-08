@@ -7,7 +7,7 @@ resource "kubernetes_namespace" "vault" {
 
 module "vault" {
   count  = var.vault.enabled ? 1 : 0
-  source = "../../charts/vault"
+  source = "../../charts//vault"
   namespace = kubernetes_namespace.vault[0].metadata[0].name
   values = {
     version = var.vault.values.version
